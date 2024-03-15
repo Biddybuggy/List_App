@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+
+class ListScreen extends StatefulWidget {
+  static const routeName = "/list_screen";
+
+  const ListScreen({Key? key}) : super(key: key);
+
+  @override
+  State<ListScreen> createState() => _ListScreenState();
+}
+
+class _ListScreenState extends State<ListScreen> {
+  final List<String> titles = <String>["Inception", "The Shawshank Redemption"];
+  final List<String> descriptions = <String>["xxx", "yyy"];
+  final List<String> icons = <String>[
+    "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@",
+    "MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI"
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: SingleChildScrollView(
+            child: Expanded(
+                child: SizedBox(
+      width: MediaQuery.of(context).size.width,
+      child: ListView.builder(
+          padding: const EdgeInsets.all(8),
+          itemCount: titles.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              height: 50,
+              color: Colors.lightBlueAccent,
+              child: Column(
+                children: [
+                  Text(titles[index]),
+                  Text(descriptions[index]),
+                ],
+              ),
+            );
+          }),
+    ))));
+  }
+}

@@ -1,0 +1,13 @@
+import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+void insertperson() async {
+    var box = await Hive.openBox('dataBox')
+
+    var person = Person(
+        email: String email,
+        username: String username,
+        password: String password
+    );
+
+    await box.put(email, person);
+}
